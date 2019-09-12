@@ -42,7 +42,7 @@ async function beginShippingProduct(beginShippingProduct) {  // eslint-disable-l
   beginShippingProduct.product.sourceOrganization = beginShippingProduct.sourceOrganization;
   beginShippingProduct.product.destinationOrganization = beginShippingProduct.destinationOrganization;
   beginShippingProduct.product.readCount += beginShippingProduct.additionalReads
-
+  beginShippingProduct.product.height = beginShippingProduct.product.height + 1;
   const ar = await getAssetRegistry('org.block.supply.Product');
   await ar.update(beginShippingProduct.product);
 }

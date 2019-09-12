@@ -42,7 +42,7 @@ export class NewBlockFormComponent implements OnInit {
       sourceOrganization: customerData.sourceOrganization,
       // PData
       pName: customerData.productName,
-      ProductExpirationDate: event.toISOString(),
+      ProductExpirationDate: customerData.productExpirationDate,
       toSignTId: customerData.productSignedTagId,
       signedPdata: customerData.productSignedData,
 

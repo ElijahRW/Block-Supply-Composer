@@ -8,3 +8,11 @@
 In a sepperate directory pull from the [git repository](REPLACEME). Follow the instructions provided.
 
 ## Application Explanation:
+
+### To validate block chain: 
+* Ssh into Organization docker instance --> 
+* run: `peer channel getinfo -c composerchannel`
+*Example Blockchain info display:*
+```
+Blockchain info: {"height":3,"currentBlockHash":"cdgG77YM53sjAGT5kxoWVC9kWqa6gRb5qbLTSxLHNXc=","previousBlockHash":"A3a9HJkdJKG0Pch0pdK7bmtx4cKmaiGsdlIKQWgCgVI="}
+```

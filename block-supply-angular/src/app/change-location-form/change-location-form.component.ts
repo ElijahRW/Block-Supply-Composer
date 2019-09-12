@@ -35,9 +35,10 @@ export class ChangeLocationFormComponent implements OnInit {
       product: "resource:org.block.supply.Product#" + customerData.productId,
       sourceOrganization: customerData.newDestination,
       destinationOrganization: customerData.previousLocation,
+      additionalReads: customerData.additionalReads,
     };
     this.blockChainApi.postBeginShippingProduct(product).subscribe((data: BlockData) => {
-      console.log(data)
+      console.log(data);
     });
     // Process checkout data here
     this._snackBar.open("TEMP", "TEMP", {
