@@ -1,0 +1,94 @@
+/**
+ * Block-Supply network Permissions
+**/
+// Viewing Rules
+rule ViewOwnResources {
+  description: "Allow all organizations access to view all products shipped to themd"
+  participant(m): "org.block.supply.Organization"
+  operation: READ
+  resource(v): "org.block.supply.Product"
+  condition: (v.destinationOrganization.getIdentifier() == m.getIdentifier())
+  action: ALLOW
+}
+
+rule ViewOtherParticipants {
+  description: "Allow all organizations access to view all all other users"
+  participant: "org.block.supply.Organization"
+  operation: READ
+  resource: "org.block.supply.Organization"
+  action: ALLOW
+}
+
+// Shipping Rules
+rule AllUsersCanShipOwnedProductsThroughTx {
+  description: "Allow all organiztions to ship any product currently pointed to them."
+  participant(org): "org.block.supply.Organization"
+  operation: READ, UPDATE
+  resource(prod): "org.block.supply.Product"
+  transaction(tx): "org.block.supply.BeginShippingProduct"
+  condition: (prod.destinationOrganization.getIdentifier() == org.getIdentifier() && tx.sourceOrganization.getIdentifier() == org.getIdentifier())
+  action: ALLOW
+}
+
+rule AllusersCanShipOwnedProductsTx {
+  description: "Allow all organiztions to ship any product currently shipped to them."
+  participant: "org.block.supply.Organization"
+  operation: READ, CREATE
+  resource: "org.block.supply.BeginShippingProduct"
+  //condition: (v.desintationOrganization.getIdentifier() == o.getIdentifier())
+  action: ALLOW
+}
+
+// Product Generation Rules
+rule ManufacturersCanCreateProductsTx {
+  description: "Allow only manufacturers to generate new products through Generate Product Transaction."
+  participant: "org.block.supply.Manufacturer"
+  operation: CREATE, READ
+  resource: "org.block.supply.Product"
+  transaction: "org.block.supply.GenerateProduct"
+  action: ALLOW
+}
+
+rule ManufacturersCanGenerate {
+   description: "Allow all organiztions to ship any product currently shipped to them."
+  participant(m): "org.block.supply.Organization"
+  operation: READ, CREATE
+  resource(v): "org.block.supply.GenerateProduct"
+  condition: (v.sourceOrganization.getIdentifier() == m.getIdentifier())
+  action: ALLOW
+}
+
+/**
+ * Administration Defaults
+ **/
+/* rule Default {
+  description: "Allow all participants access to all view their own resources"
+  participant: "org.block.supply.User"
+  operation: ALL
+  resource: "org.block.supply.*"
+  action: ALLOW
+}*/
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
+
+rule NetworkAdminUser {
+  description: "Grant business network administrators full access to user resources"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "**"
+  action: ALLOW
+}
+
+rule NetworkAdminSystem {
+  description: "Grant business network administrators full access to system resources"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}

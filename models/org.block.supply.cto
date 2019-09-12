@@ -1,0 +1,59 @@
+/**
+ *  Block-Supply Model Definition
+ */
+
+namespace org.block.supply
+
+abstract participant Organization identified by email {
+  o String email
+  o String name
+  o String address
+}
+
+participant Distributor extends Organization {
+  
+}
+
+participant Manufacturer extends Organization {
+}
+
+asset Product identified by pId {
+    o String pId
+    o Integer height
+    o Integer fee
+    o DateTime time
+    o String previousHash
+    // Data Block
+    --> Organization sourceOrganization
+    --> Organization destinationOrganization
+    o Integer readCount
+    // PData
+    o String pName
+    o DateTime ProductExpirationDate
+    o String toSignTId
+    o String signedPdata
+}
+
+/**
+ * A transaction type for generating a new product
+ */
+transaction GenerateProduct {
+    o String pId
+    o Integer fee
+    o DateTime time
+    // Data Block
+    --> Organization sourceOrganization
+    // --> Organization destinationOrganization
+    // PData
+    o String pName
+    o DateTime ProductExpirationDate
+    o String toSignTId
+    o String signedPdata
+}
+
+transaction BeginShippingProduct {
+  --> Product product
+  --> Organization sourceOrganization
+  --> Organization destinationOrganization
+  o Integer additionalReads
+}
