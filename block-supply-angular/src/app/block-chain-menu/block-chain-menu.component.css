@@ -1,0 +1,28 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-events {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #555;
+}
+
+.md-button.md-raised {
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.full-button {
+  width: 100%;
+  border-radius: 0px;
+}
+
+.full-button-div {
+  padding-bottom: 5px;
+}

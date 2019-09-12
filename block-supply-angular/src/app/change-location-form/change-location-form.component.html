@@ -1,0 +1,35 @@
+<h1>New Block Submission</h1>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <!-- newLocation: "",
+      newDestination: "",
+      additionalReads: 0,-->
+  <div>
+    <label for="productId">
+      Block Id
+    </label>
+    <input id="productId" type="text" formControlName="productId">
+  </div>
+  <div>
+    <label for="newLocation">
+      Previous Location
+    </label>
+    <input id="previousLocation" type="text" formControlName="previousLocation">
+  </div>
+  <div>
+    <label for="newDestination">
+      New Destination
+    </label>
+    <input id="newDestination" type="text" formControlName="newDestination">
+  </div>
+  <div>
+    <label for="newReadCount">
+      New Read Count
+    </label>
+    <input id="newReadCount" type="text" formControlName="newReadCount">
+  </div>
+
+  <button class="button" type="submit">Submit New Destination</button>
+
+</form>

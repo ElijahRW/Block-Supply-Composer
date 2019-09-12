@@ -1,0 +1,51 @@
+<h1>New Block Submission</h1>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<!--  <div>
+    <label for="validationSignature">
+      Validation Signature:
+    </label>
+    <input id="validationSignature" type="text" formControlName="validationSignature">
+  </div>-->
+  <div>
+    <label for="productId">
+      Product Id:
+    </label>
+    <input id="productId" type="text" formControlName="productId">
+  </div>
+  <div>
+    <label for="productName">
+      Product Name:
+    </label>
+    <input id="productName" type="text" formControlName="productName">
+  </div>
+  <div>
+    <label for="sourceOrganization">
+      Destination Organization:
+    </label>
+    <input id="sourceOrganization" type="text" formControlName="sourceOrganization">
+  </div>
+  <div>
+      Product Expiration Date:
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <label for="productSignedTagId">
+      Product's Signed Tag Id:
+    </label>
+    <input id="productSignedTagId" type="text" formControlName="productSignedTagId">
+  </div>
+  <div>
+    <label for="productSignedData">
+      Product's Signed Data:
+    </label>
+    <input id="productSignedData" type="text" formControlName="productSignedData">
+  </div>
+
+  <button class="button" type="submit">Submit New Product</button>
+
+</form>

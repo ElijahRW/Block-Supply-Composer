@@ -4,3 +4,51 @@ composer.phar
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/block-supply-angularZ/dist
+/block-supply-angular/tmp
+/block-supply-angular/out-tsc
+# Only exists if Bazel was run
+/block-supply-angular/bazel-out
+
+# dependencies
+/block-supply-angular/node_modules
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
+
+# IDEs and editors
+/block-supply-angular/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/block-supply-angular/.sass-cache
+/block-supply-angular/connect.lock
+/block-supply-angular/coverage
+/block-supply-angular/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/block-supply-angular/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+

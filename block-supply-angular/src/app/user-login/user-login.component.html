@@ -1,0 +1,20 @@
+<h3>Please Log In</h3>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+  <div>
+    <label for="userName">
+      User Name
+    </label>
+    <input id="userName" type="text" formControlName="userName">
+  </div>
+
+  <div>
+    <label for="password">
+      Password
+    </label>
+    <input id="password" type="password" formControlName="userName">
+  </div>
+
+
+  <button class="button" type="submit">Submit New Product</button>
+
+</form>

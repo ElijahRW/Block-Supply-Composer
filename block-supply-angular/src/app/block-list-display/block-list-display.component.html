@@ -1,0 +1,20 @@
+<!--<p>block-list-display works!</p>-->
+<h1>Available Blocks</h1>
+<p>--------------------------------------</p>
+<ul>
+  <div *ngFor="let product of products">
+    <div>
+      <h2>PID: <b>{{ product.pId }}</b></h2>
+      <p>Destination: <b>{{product.destinationOrganization}}</b></p>
+      <p>Shipping Height: <b>{{product.height}}</b></p>
+      <p>Product Read Count: <b>{{product.readCount}}</b></p>
+      <p>-----</p>
+      <p>Product Name: <b>{{product.pName}}</b></p>
+      <p>Product Expiration Date: <b>{{product.ProductExpirationDate}}</b></p>
+      <p></p>
+
+      <button mat-raised-button color="primary" (click)="this.onSelect(product.pId)">Select This Block Chain</button>
+      <p>-------------------</p>
+    </div>
+  </div>
+</ul>

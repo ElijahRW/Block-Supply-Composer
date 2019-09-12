@@ -1,0 +1,42 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+
+    <div class="full-button-div" style="padding-top: 5px;">
+      <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(3)">Login</button>
+    </div>
+
+    <h3>Sidenav content</h3>
+    <div *ngIf="loggedIn" class="full-button-div">
+      <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(0)">Add New Block</button>
+    </div>
+    <div *ngIf="loggedIn" class="full-button-div">
+      <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(1)">Change Block Location</button>
+    </div>
+    <div *ngIf="loggedIn" class="full-button-div">
+      <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(2)">Display Current Blocks</button>
+    </div>
+
+    <div class="full-button-div">
+      <button mat-button (click)="sidenav.toggle()">Close</button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content [ngSwitch]="openTab">
+<!--    <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>-->
+    <p><button mat-button (click)="sidenav.toggle()" mat-raised-button color="primary">Open Side Navigation</button></p>
+
+    <app-new-block-form *ngSwitchCase="0"></app-new-block-form>
+    <app-change-location-form *ngSwitchCase="1" [loadNewChangeLocationForm]="selectedPId"></app-change-location-form>
+    <app-block-list-display *ngSwitchCase="2"></app-block-list-display>
+    <app-block-list-display *ngSwitchCase="3" (selectedId)="setChangeLocation($event)">
+    </app-block-list-display>
+    <app-user-login *ngSwitchCase="4"></app-user-login>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
