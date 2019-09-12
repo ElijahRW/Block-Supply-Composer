@@ -28,7 +28,7 @@ export class BlockChainMenuComponent implements OnInit {
   private setChangeLocation(selectedPId: string) {
     this.selectedPId = "";
     this.selectedPId = selectedPId;
-    console.log(selectedPId);
+    console.log("AGAIN: "+ selectedPId);
     this.openTab = 1;
   }
 

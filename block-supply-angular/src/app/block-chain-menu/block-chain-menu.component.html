@@ -27,10 +27,9 @@
 
     <app-new-block-form *ngSwitchCase="0"></app-new-block-form>
     <app-change-location-form *ngSwitchCase="1" [loadNewChangeLocationForm]="selectedPId"></app-change-location-form>
-    <app-block-list-display *ngSwitchCase="2"></app-block-list-display>
-    <app-block-list-display *ngSwitchCase="3" (selectedId)="setChangeLocation($event)">
+    <app-block-list-display *ngSwitchCase="2" (selectedId)="setChangeLocation($event)">
     </app-block-list-display>
-    <app-user-login *ngSwitchCase="4"></app-user-login>
+    <app-user-login *ngSwitchCase="3"></app-user-login>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
