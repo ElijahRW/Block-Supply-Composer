@@ -33,8 +33,8 @@ export class ChangeLocationFormComponent implements OnInit {
 
     const product = {
       product: "resource:org.block.supply.Product#" + customerData.productId,
-      sourceOrganization: customerData.newDestination,
-      destinationOrganization: customerData.previousLocation,
+      sourceOrganization: customerData.previousLocation,
+      destinationOrganization: customerData.newDestination,
       additionalReads: customerData.additionalReads,
     };
     this.blockChainApi.postBeginShippingProduct(product).subscribe((data: BlockData) => {

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 
 import {FormBuilder} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-// import {NewBlockResponse} from "./new-block-response";
 import {BlockChainApiService} from "../services/block-chain-api.service";
 
 
@@ -23,10 +22,10 @@ export class NewBlockFormComponent implements OnInit {
       productId: "", // PId
       fee: "",
       sourceOrganization: "",
-      // TODO: PData Refactor?
-      productName: "", // PNae
+
+      productName: "", // PName
       productExpirationDate: "",
-      productSignedTagId: "", //TODO: Generate elsewhere?
+      productSignedTagId: "",
       productSignedData: "",
 
     });
@@ -48,20 +47,12 @@ export class NewBlockFormComponent implements OnInit {
 
     }
     this.blockChainApi.createProduct(product).subscribe((data: BlockData) => {
-      console.log(data)
-    });
-
-
-    // Process checkout data here
-    this._snackBar.open("TEMP", "TEMP", {
-      duration: 2000,
-    });
-    if (this.validateForm())
-      this._snackBar.open("TEMP", "TEMP", {
+      console.log(data);
+      this._snackBar.open("Successful Submission", "X", {
         duration: 2000,
       });
+    });
     console.warn('New Block has been submitted', customerData);
-    // TODO: Add form submission logic, for now log will submit, and form will reset.
     this.checkoutForm.reset();
   }
 

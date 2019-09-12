@@ -5,12 +5,16 @@
   <div *ngFor="let product of products">
     <div>
       <h2>PID: <b>{{ product.pId }}</b></h2>
-      <p>Destination: <b>{{product.destinationOrganization}}</b></p>
-      <p>Shipping Height: <b>{{product.height}}</b></p>
+      <p>Block Height: <b>{{product.height}}</b></p>
+      <p>Block Initialization Time: <b>{{product.time}}</b></p>
+      <p>Source Organization: <b>{{product.sourceOrganization}}</b></p>
+      <p>Destination Organization: <b>{{product.destinationOrganization}}</b></p>
       <p>Product Read Count: <b>{{product.readCount}}</b></p>
-      <p>-----</p>
+      <h3>---<b>PData</b>---</h3>
       <p>Product Name: <b>{{product.pName}}</b></p>
       <p>Product Expiration Date: <b>{{product.ProductExpirationDate}}</b></p>
+      <p><i>Protuct Signed TId: <b>{{product.toSignTId}}</b></i></p>
+      <p><i>Signed PData: <b>{{product.signedPdata}}</b></i></p>
       <p></p>
 
       <button mat-raised-button color="primary" (click)="this.onSelect(product.pId)">Select This Block Chain</button>

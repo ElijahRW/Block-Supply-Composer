@@ -22,9 +22,9 @@ export class BlockChainApiService {
   ) {
   }
 
-  productUrl = "http://localhost:3000/api/Product";
-  productGenerationUrl = "http://localhost:3000/api/GenerateProduct";
-  productChangedLocationUrl = "http://localhost:3000/api/BeginShippingProduct";
+  productUrl = "http://localhost:3001/api/Product";
+  productGenerationUrl = "http://localhost:3001/api/GenerateProduct";
+  productChangedLocationUrl = "http://localhost:3001/api/BeginShippingProduct";
 
   getProducts() {
     return this.http.get(this.productUrl);
