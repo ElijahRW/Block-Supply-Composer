@@ -25,10 +25,22 @@ export class BlockChainApiService {
   productUrl = "http://localhost:3001/api/Product";
   productGenerationUrl = "http://localhost:3001/api/GenerateProduct";
   productChangedLocationUrl = "http://localhost:3001/api/BeginShippingProduct";
+  manufacturersUrl = "http://localhost:3001/api/Manufacturer";
+  distributorsUrl = "http://localhost:3001/api/Manufacturer";
+
 
   getProducts() {
     return this.http.get(this.productUrl);
   }
+
+  getManufacturers () {
+    return this.http.get(this.manufacturersUrl);
+  }
+
+  getDistributors () {
+    return this.http.get(this.distributorsUrl);
+  }
+
 
   createProduct(blockGenerationData: any): Observable<any> {
     /** POST: add a new hero to the database */

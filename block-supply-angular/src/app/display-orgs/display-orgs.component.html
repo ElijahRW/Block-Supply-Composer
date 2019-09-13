@@ -1,0 +1,10 @@
+<h1>Current Organizations</h1>
+<p>--------------------------------------</p>
+  <div *ngFor="let org of organizations">
+    <div>
+      <h2>Email: <b>{{ org.name }}</b></h2>
+      <p>Organization Name: <b>{{org.name}}</b></p>
+      <p>Address: <b>{{org.address}}</b></p>
+      <p>-------------------</p>
+    </div>
+  </div>

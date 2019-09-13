@@ -24,6 +24,7 @@ import { BlockListDisplayComponent } from './block-list-display/block-list-displ
 //Services
 import { BlockChainApiService} from "./services/block-chain-api.service";
 import { UserLoginComponent } from './user-login/user-login.component';
+import { DisplayOrgsComponent } from './display-orgs/display-orgs.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
     NewBlockFormComponent,
     BlockListDisplayComponent,
     UserLoginComponent,
+    DisplayOrgsComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -15,6 +15,9 @@
     <div *ngIf="loggedIn" class="full-button-div">
       <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(2)">Display Current Blocks</button>
     </div>
+    <div *ngIf="loggedIn" class="full-button-div">
+      <button class="full-button" mat-raised-button color="primary" (click)="setOpenTab(4)">Display Organizations</button>
+    </div>
 
     <div class="full-button-div">
       <button mat-button (click)="sidenav.toggle()">Close</button>
@@ -30,6 +33,7 @@
     <app-block-list-display *ngSwitchCase="2" (selectedId)="setChangeLocation($event)">
     </app-block-list-display>
     <app-user-login *ngSwitchCase="3"></app-user-login>
+    <app-display-orgs *ngSwitchCase="4"></app-display-orgs>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
